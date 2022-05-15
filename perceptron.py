@@ -70,9 +70,9 @@ def prediction():
     return f"Predicted class for sepal_length = {sl}, and petal_length = {pl} is {name}."
 
 
-app.run(port='5000') 
+app.run(port=5000) 
 # http://127.0.0.1:5000/api/predict?&sl=4.5&pl=3.2
 
-import requests
-response = requests.get("http://127.0.0.1:5000/api/predict?&sl=4.5&pl=3.2")
-print(response.content)
+#import requests
+#response = requests.get("http://127.0.0.1:5000/api/predict?&sl=4.5&pl=3.2")
+#print(response.content)
