@@ -48,8 +48,10 @@ model = Perceptron()
 X=df.iloc[:,:2].values
 y=df.target.values
 model.fit(X,y)
-with open("model_rta.pkl", "wb") as fh:
+
+with open(r"C:\Users\nk131\Desktop\SGH\rta\rta_public\model_rta.pkl", "wb") as fh:
     pickle.dump(model, fh)
+
 app = Flask(__name__)
 
 @app.route("/api/predict", methods = ['GET'])
@@ -70,7 +72,7 @@ def prediction():
     return f"Predicted class for sepal_length = {sl}, and petal_length = {pl} is {name}."
 
 
-app.run(port=5000) 
+# app.run(port=5000) 
 # http://127.0.0.1:5000/api/predict?&sl=4.5&pl=3.2
 
 #import requests
