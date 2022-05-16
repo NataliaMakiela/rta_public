@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route("/api/predict", methods = ['GET'])
 def prediction():
 
-    with open(r"C:\Users\nk131\Desktop\SGH\rta\rta_public\model_rta.pkl", "rb") as fh:    
+    with open("model_rta.pkl", "rb") as fh:    
         loaded_model = pickle.load(fh)
 
     sl = float(request.args.get("sl"))
@@ -25,4 +25,11 @@ def prediction():
     return f"Predicted class for sepal_length = {sl}, and petal_length = {pl} is {name}."
 
 
-app.run(port=5000) 
+# to build the image: docker build -t <image_name> .
+# to run the image: docker run -p 5000:5000 -t -i <image_name>
+
+# http://127.0.0.1:5000/api/predict?&sl=4.5&pl=3.2
+
+#import requests
+#response = requests.get("http://127.0.0.1:5000/api/predict?&sl=4.5&pl=3.2")
+#print(response.content)

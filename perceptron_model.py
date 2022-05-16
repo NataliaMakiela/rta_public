@@ -49,7 +49,7 @@ X=df.iloc[:,:2].values
 y=df.target.values
 model.fit(X,y)
 
-with open(r"C:\Users\nk131\Desktop\SGH\rta\rta_public\model_rta.pkl", "wb") as fh:
+with open("model_rta.pkl", "wb") as fh:
     pickle.dump(model, fh)
 
 
